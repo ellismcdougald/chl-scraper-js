@@ -1,0 +1,19 @@
+{
+  "name": "chl-scraper-js",
+  "version": "1.0.0",
+  "description": "A NodeJS scraper built to scrape hockey data from the Canadian Hockey League website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellismcdougald/chl-scraper-js.git"
+  },
+  "author": "Ellis McDougald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellismcdougald/chl-scraper-js/issues"
+  },
+  "homepage": "https://github.com/ellismcdougald/chl-scraper-js#readme"
+}
