@@ -26,8 +26,5 @@ Returns the game info and skater statistics for the game indicated by the given 
 
 - gameId: the chl.ca game id, int
 - league: the league the game was played in, string. One of ('ohl', 'whl', 'lhjmq')
-<<<<<<< HEAD
-=======
 
 i.e. scrapeGame(26459, 'ohl')
->>>>>>> c94f954 (Adds scrapeGame function description with function example)
