@@ -6,7 +6,13 @@ When using this scraper, please demonstrate care for the Canadian Hockey League'
 
 # Installation
 
-INSTALLATION INSTRUCTIONS
+Install using npm.
+
+    $ npm install chl-scraper-js
+
+Once the package is installed, you can import it with require.
+
+    $ const { getLeagueSchedule, scrapeGame } = require('chl-scraper-js')
 
 # User Functions
 
@@ -18,7 +24,7 @@ Returns the league schedule for all games played between the start date and the 
 - endDate, the end date of the time interval you would like to scrape, string as format 'YYYY-MM-DD'
 - league: the league whose schedule you would like to scrape, string. One of ('ohl', 'whl', 'lhjmq')
 
-i.e. getLeagueSchedule('2022-09-29', '2023-03-26', 'ohl')
+i.e. `getLeagueSchedule('2022-09-29', '2023-03-26', 'ohl')`
 
 ## scrapeGame(gameId, league)
 
@@ -27,4 +33,12 @@ Returns the game info and skater statistics for the game indicated by the given 
 - gameId: the chl.ca game id, int
 - league: the league the game was played in, string. One of ('ohl', 'whl', 'lhjmq')
 
-i.e. scrapeGame(26459, 'ohl')
+i.e. `scrapeGame(26459, 'ohl')`
+
+# Workflow
+
+Use `getLeagueSchedule` to fetch game details, including game id and league, then call `scrapeGame` to fetch game statistics.
+
+# Contact
+
+Email ecmcdougald@gmail.com for questions or issues.
