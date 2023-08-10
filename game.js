@@ -67,7 +67,47 @@ async function getSingleGamePlayerStats(gameSummary, pxpData, league) {
     shotsFaceoffsPenalties.faceoffs,
     shotsFaceoffsPenalties.penalties
   );
-  return { gameInfo: data.gameInfo, lineups: lineupArrays };
+
+  const goalieStats = getGoalieStats(gameSummary);
+
+  return {
+    gameInfo: data.gameInfo,
+    lineups: lineupArrays,
+    goalies: goalieStats,
+  };
+}
+
+function getGoalieStats(gameSummary) {
+  /*
+  Returns the goalie statistics from a given game summary.
+  - gameSummary: the game summary, object
+  */
+  const goalieStats = {
+    home: gameSummary.home_team_lineup.goalies.map((goalieObj) => {
+      return {
+        playerId: goalieObj.player_id,
+        personId: goalieObj.person_id,
+        name: `${goalieObj.first_name} ${goalieObj.last_name}`,
+        teamCode: gameSummary.home.team_code,
+        minutes: goalieObj.seconds / 60,
+        shotsAgainst: goalieObj.shots_against,
+        goalsAgainst: goalieObj.goals_against,
+      };
+    }),
+    visitor: gameSummary.visitor_team_lineup.goalies.map((goalieObj) => {
+      return {
+        playerId: goalieObj.player_id,
+        personId: goalieObj.person_id,
+        name: `${goalieObj.first_name} ${goalieObj.last_name}`,
+        teamCode: gameSummary.visitor.team_code,
+        minutes: goalieObj.seconds / 60,
+        shotsAgainst: goalieObj.shots_against,
+        goalsAgainst: goalieObj.goals_against,
+      };
+    }),
+  };
+
+  return goalieStats;
 }
 
 async function getData(gameSummary, league) {
@@ -421,4 +461,4 @@ function incrementShots(lineup, shot) {
   }
 }
 
-scrapeGame(26459, "ohl");
+scrapeGame(26459, "ohl").then((result) => console.log(result.goalies));
