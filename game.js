@@ -1,3 +1,5 @@
+module.exports = { scrapeGame };
+
 const { leagueKeys } = require("./scheduleSeasonIdsAndLeagueKeys");
 const {
   getShotsFaceoffsAndPenalties,
