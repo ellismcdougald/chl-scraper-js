@@ -51,7 +51,7 @@ async function getSingleGamePlayerStats(gameSummary, pxpData, league) {
     */
   const data = await getData(gameSummary, league);
   if (!data.goals) data.goals = [];
-  if (!data.shots) data.shots = [];
+  // if (!data.shots) data.shots = [];
 
   const shotsFaceoffsPenalties = await getShotsFaceoffsAndPenalties(pxpData);
   const lineupArrays = initializeLineupArrays(
@@ -74,6 +74,9 @@ async function getSingleGamePlayerStats(gameSummary, pxpData, league) {
     gameInfo: data.gameInfo,
     players: lineupArrays,
     goalies: goalieStats,
+    shots: shotsFaceoffsPenalties.shots,
+    faceoffs: shotsFaceoffsPenalties.faceoffs,
+    penalties: shotsFaceoffsPenalties.penalties,
   };
 }
 
@@ -461,5 +464,3 @@ function incrementShots(lineup, shot) {
     }
   }
 }
-
-scrapeGame(26459, "ohl").then((result) => console.log(result.players.home));
