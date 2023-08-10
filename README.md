@@ -12,7 +12,7 @@ Install using npm.
 
 Once the package is installed, you can import it with require.
 
-    $ const { getLeagueSchedule, scrapeGame } = require('chl-scraper-js')
+    const { getLeagueSchedule, scrapeGame } = require('chl-scraper-js')
 
 # User Functions
 
