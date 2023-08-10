@@ -72,7 +72,7 @@ async function getSingleGamePlayerStats(gameSummary, pxpData, league) {
 
   return {
     gameInfo: data.gameInfo,
-    lineups: lineupArrays,
+    players: lineupArrays,
     goalies: goalieStats,
   };
 }
@@ -178,6 +178,7 @@ function initializeLineupArray(lineup, teamCode) {
     playerObject = {};
     playerObject.playerId = parseInt(player.player_id);
     playerObject.personId = parseInt(player.person_id);
+    playerObject.name = `${player.first_name} ${player.last_name}`;
     playerObject.teamCode = teamCode;
     playerObject.position = player.position_str;
     playerObject.general = {
@@ -461,4 +462,4 @@ function incrementShots(lineup, shot) {
   }
 }
 
-scrapeGame(26459, "ohl").then((result) => console.log(result.goalies));
+scrapeGame(26459, "ohl").then((result) => console.log(result.players.home));
