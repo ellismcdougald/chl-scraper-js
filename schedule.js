@@ -16,9 +16,15 @@ async function getLeagueSchedule(startDate, endDate, league) {
     */
 
   const startYear = parseInt(startDate.substring(0, 4));
+  const startMonth = parseInt(startDate.substring(5, 7));
   const endYear = parseInt(endDate.substring(0, 4));
+  const endMonth = parseInt(endDate.substring(5, 7));
+
+  const loopStartYear = startMonth <= 4 ? startYear - 1 : startYear;
+  const loopEndYear = endMonth <= 4 ? endYear - 1 : endYear;
+
   let seasons = [];
-  for (let year = startYear; year < endYear; year++) {
+  for (let year = loopStartYear; year <= loopEndYear; year++) {
     seasons.push(`${year}-${year + 1}`);
   }
 
