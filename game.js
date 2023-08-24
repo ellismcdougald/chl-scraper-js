@@ -148,6 +148,8 @@ function getGameInfo(gsData, league) {
   gameInfo.visitorCode = gsData.visitor.team_code;
   gameInfo.homeGoals = gsData.meta.home_goal_count;
   gameInfo.visitorGoals = gsData.meta.visiting_goal_count;
+  (gameInfo.homeShots = gsData.totalShots.home),
+    (gameInfo.visitorShots = gsData.totalShots.visitor);
 
   return gameInfo;
 }
