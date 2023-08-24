@@ -1,6 +1,6 @@
 {
   "name": "chl-scraper-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A NodeJS scraper built to scrape hockey data from the Canadian Hockey League website.",
   "main": "index.js",
   "scripts": {
