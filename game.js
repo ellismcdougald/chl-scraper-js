@@ -90,8 +90,8 @@ function getGoalieStats(gameSummary) {
   const goalieStats = {
     home: gameSummary.home_team_lineup.goalies.map((goalieObj) => {
       return {
-        playerId: goalieObj.player_id,
-        personId: goalieObj.person_id,
+        playerId: parseInt(goalieObj.player_id),
+        personId: parseInt(goalieObj.person_id),
         name: `${goalieObj.first_name} ${goalieObj.last_name}`,
         teamCode: gameSummary.home.team_code,
         minutes: goalieObj.seconds / 60,
@@ -101,8 +101,8 @@ function getGoalieStats(gameSummary) {
     }),
     visitor: gameSummary.visitor_team_lineup.goalies.map((goalieObj) => {
       return {
-        playerId: goalieObj.player_id,
-        personId: goalieObj.person_id,
+        playerId: parseInt(goalieObj.player_id),
+        personId: parseInt(goalieObj.person_id),
         name: `${goalieObj.first_name} ${goalieObj.last_name}`,
         teamCode: gameSummary.visitor.team_code,
         minutes: goalieObj.seconds / 60,
