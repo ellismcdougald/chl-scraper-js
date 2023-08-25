@@ -139,15 +139,16 @@ function getGameInfo(gsData, league) {
   */
   const gameInfo = {};
 
-  gameInfo.gameId = gsData.meta.id;
+  gameInfo.gameId = parseInt(gsData.meta.id);
   gameInfo.date = gsData.meta.date_played;
+  gameInfo.seasonId = parseInt(gsData.meta.season_id);
   gameInfo.league = league;
   gameInfo.homeTeam = gsData.home.name;
   gameInfo.homeCode = gsData.home.team_code;
   gameInfo.visitorTeam = gsData.visitor.name;
   gameInfo.visitorCode = gsData.visitor.team_code;
-  gameInfo.homeGoals = gsData.meta.home_goal_count;
-  gameInfo.visitorGoals = gsData.meta.visiting_goal_count;
+  gameInfo.homeGoals = parseInt(gsData.meta.home_goal_count);
+  gameInfo.visitorGoals = parseInt(gsData.meta.visiting_goal_count);
   (gameInfo.homeShots = gsData.totalShots.home),
     (gameInfo.visitorShots = gsData.totalShots.visitor);
 
