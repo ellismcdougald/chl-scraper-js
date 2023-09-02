@@ -1,3 +1,5 @@
+module.exports = { getPlayer };
+
 const axios = require("axios");
 
 async function getPlayer(playerId, league) {
@@ -10,7 +12,9 @@ async function getPlayer(playerId, league) {
       playerId,
       jsonData.first_name,
       jsonData.last_name,
-      jsonData.birthdate.length === 0 ? null : jsonData.birthdate,
+      jsonData.birthdate.length === 0 || jsonData.birthdate === "0000-00-00"
+        ? null
+        : jsonData.birthdate,
       jsonData.height.length === 0 ? null : heightToInches(jsonData.height),
       jsonData.weight.length === 0 ? null : parseInt(jsonData.weight),
       jsonData.shoots,
@@ -18,8 +22,6 @@ async function getPlayer(playerId, league) {
     ];
   }
 }
-
-getPlayer(8596, "ohl").then((result) => console.log(result));
 
 function heightToInches(heightStr) {
   let strParts;
