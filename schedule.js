@@ -69,7 +69,8 @@ async function getScheduleGames(season, league, startDate, endDate) {
   const filteredScheduleData = scheduleData.filter(
     (game) =>
       Date.parse(game.date_played) >= Date.parse(startDate) &&
-      Date.parse(game.date_played) <= Date.parse(endDate)
+      Date.parse(game.date_played) <= Date.parse(endDate) &&
+      game.final === "1"
   );
   const filteredScheduleGames = filteredScheduleData.map((game) => {
     return {
