@@ -408,7 +408,7 @@ function incrementPointGetters(lineup, goal) {
     goalState = "penaltyShot";
   }
 
-  goalScorer[goalState].goals++;
+  if (goalScorer) goalScorer[goalState].goals++;
   if (firstAssister) firstAssister[goalState].firstAssists++;
   if (secondAssister) secondAssister[goalState].secondAssists++;
 }
